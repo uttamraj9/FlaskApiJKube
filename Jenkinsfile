@@ -71,6 +71,13 @@ pipeline {
             steps {
                 script {
                     sh '''
+                    echo "Current Kubernetes Context:"
+                    kubectl config current-context
+                    echo "Checking Nodes:"
+                    kubectl get nodes
+                    echo "Checking Pods in default namespace:"
+                    kubectl get pods -o wide -n default
+                    echo "Applying Deployment and Service:"
                     kubectl apply -f /var/lib/jenkins/workspace/FlaskApiJKube/k8s/deployment.yaml
                     kubectl apply -f /var/lib/jenkins/workspace/FlaskApiJKube/k8s/service.yaml
                     '''
