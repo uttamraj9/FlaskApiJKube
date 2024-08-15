@@ -10,6 +10,7 @@ pipeline {
         DOCKER_IMAGE = 'muyiwao/flask-api:latest'
         FLASK_APP_PORT = '5310'
         SERVER_IP = '18.132.73.146' // Replace with your server's public IP
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
     stages {
         stage('Clone Repository') {
